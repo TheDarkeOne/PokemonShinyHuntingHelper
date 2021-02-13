@@ -1,0 +1,28 @@
+﻿@page "/hunt/radarchaining"
+@model PokemonShinyHuntingHelper.Pages.RadarChainingModel
+@{
+}
+
+<form method="post">
+    <div>
+        <div>
+            <text>Chain Length: </text>
+            <input type="number" asp-for="CurrentHunt.Chain">
+        </div>
+        <div>
+            <text>Encounters: </text>
+            <input type="number" asp-for="CurrentHunt.Amount">
+        </div>
+        <div>
+            <text>Pokemon Caught: </text>
+            <input asp-for="CurrentHunt.Pokemon" placeholder="Pokemon">
+        </div>
+        <div>
+            <text>Shiny Charm?</text>
+            <input type="checkbox" asp-for="CurrentHunt.ShinyCharm" />
+        </div>
+        <div>
+            <input type="submit" />
+        </div>
+    </div>
+</form>

@@ -1,0 +1,45 @@
+﻿@page "/hunt/chainfishing"
+@model PokemonShinyHuntingHelper.Pages.ChainFishingModel
+@{
+}
+
+
+<form method="post">
+    <div>
+        <div>
+            <text>Chain Length: </text>
+            <input type="number" asp-for="CurrentHunt.Chain">
+        </div>
+        <div>
+            <text>Encounters: </text>
+            <input type="number" asp-for="CurrentHunt.Amount">
+        </div>
+        <div>
+            <text>Pokemon Caught: </text>
+            <input asp-for="CurrentHunt.Pokemon" placeholder="Pokemon">
+        </div>
+        <div>
+            <text>Shiny Charm?</text>
+            <input type="checkbox" asp-for="CurrentHunt.ShinyCharm" />
+        </div>
+        <div>
+            <text>Full Odds</text>
+            <input type="text" readonly asp-for="BaseOdds" />
+        </div>
+        <div>
+            <text>Max Full Odds</text>
+            <input type="text" readonly asp-for="MaxBaseOdds" />
+        </div>
+        <div>
+            <text>Odds With Shiny Charm</text>
+            <input type="text" reaedonly asp-for="OddsWithShinyCharm">
+        </div>
+        <div>
+            <text>Max Odds With Shiny Charm</text>
+            <input type="text" reaedonly asp-for="MaxOddsWithShinyCharm">
+        </div>
+        <div>
+            <input type="submit" />
+        </div>
+    </div>
+</form>

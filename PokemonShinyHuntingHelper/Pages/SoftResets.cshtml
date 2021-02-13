@@ -1,0 +1,34 @@
+﻿@page "/hunt/softresets"
+@model PokemonShinyHuntingHelper.Pages.SoftResetsModel
+@{
+}
+
+<form method="post">
+    <div>
+        <div>
+            <text>Encounters: </text>
+            <input type="number" asp-for="CurrentHunt.Amount">
+        </div>
+        <div>
+            <text>Pokemon Caught: </text>
+            <input asp-for="CurrentHunt.Pokemon" placeholder="Pokemon">
+        </div>
+        <div>
+            <text>Shiny Charm?</text>
+            <input type="checkbox" asp-for="CurrentHunt.ShinyCharm" />
+        </div>
+        <div>
+            <text>Full Odds</text>
+            <input type="text" readonly asp-for="BaseOdds" />
+        </div>
+        <div>
+            <text>Odds With Shiny Charm</text>
+            <input type="text" reaedonly asp-for="OddsWithShinyCharm">
+        </div>
+        <div>
+            <input type="submit" />
+        </div>
+    </div>
+</form>
+
+

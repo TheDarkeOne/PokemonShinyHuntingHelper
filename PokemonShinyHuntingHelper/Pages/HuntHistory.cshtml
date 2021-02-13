@@ -1,0 +1,51 @@
+﻿@page
+
+@model PokemonShinyHuntingHelper.Pages.HuntHistoryModel
+@{
+}
+
+@if (Model.HuntHistoryList.Count() != 0)
+{
+    @foreach (var i in Model.HuntHistoryList)
+    {
+        if (i.Type == Data.TypeHunt.SoftReset || i.Type == Data.TypeHunt.Horde || i.Type == Data.TypeHunt.FriendSafari)
+        {
+            <div>Type of Hunt: @i.Type.ToString()</div>
+            <div>Length of Hunt: @i.Amount Encounters</div>
+            <div>Pokemon Caught: @i.Pokemon</div>
+            @if (@i.ShinyCharm)
+            {
+                <div>Shiny Charm: Yes</div>
+            }
+            else
+            {
+                <div>Shiny Charm: No</div>
+            }
+            <hr />
+        }
+        else if (i.Type == Data.TypeHunt.ChainFishing || i.Type == Data.TypeHunt.Radar || i.Type == Data.TypeHunt.DexNav)
+        {
+            <div>Type of Hunt: @i.Type.ToString()</div>
+            <div>Longest Chain: @i.Chain</div>
+            if (i.Type == Data.TypeHunt.DexNav)
+            {
+                <div>DexNav Level: @i.DexLevel</div>
+            }
+            <div>Length Of Hunt: @i.Amount Encounters</div>
+            <div>Pokemon Caught: @i.Pokemon</div>
+            @if (@i.ShinyCharm)
+            {
+                <div>Shiny Charm: Yes</div>
+            }
+            else
+            {
+                <div>Shiny Charm: No</div>
+            }
+            <hr />
+        }
+    }
+}
+else
+{
+    <div>There are no pokemon in the hunt history list</div>
+}
