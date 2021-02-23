@@ -14,6 +14,8 @@ namespace PokemonShinyHuntingHelper.Data
         public int DexLevel { get; set; }
         public int Amount { get; set; }
         public string Pokemon { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime Finish { get; set; }
         public double Odds { get; set; }
         public bool ShinyCharm { get; set; }
 

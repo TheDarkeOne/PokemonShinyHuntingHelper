@@ -14,6 +14,8 @@ namespace PokemonShinyHuntingHelper.Data
         public int DexLevel { get; set; }
         public int Amount { get; set; }
         public string Pokemon { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime Finish { get; set; }
         public bool ShinyCharm { get; set; }
 
         public HuntingChain(int Id = 0, int Generation = 6, TypeHunt Type = TypeHunt.Horde, int Chain = 0, int DexLevel = 0, int Amount = 0, string Pokemon = "None", bool ShinyCharm = false)

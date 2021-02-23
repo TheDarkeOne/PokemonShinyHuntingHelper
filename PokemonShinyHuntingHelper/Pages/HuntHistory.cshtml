@@ -21,17 +21,30 @@
             {
                 <div>Shiny Charm: No</div>
             }
+            <div>Started Hunt: @i.Start.ToString()</div>
+            <div>Finished Hunt: @i.Finish.ToString()</div>
             <hr />
         }
-        else if (i.Type == Data.TypeHunt.ChainFishing || i.Type == Data.TypeHunt.Radar || i.Type == Data.TypeHunt.DexNav)
+        else if (i.Type == Data.TypeHunt.ChainFishing || i.Type == Data.TypeHunt.Radar || i.Type == Data.TypeHunt.DexNav || i.Type == Data.TypeHunt.SOSChain)
         {
             <div>Type of Hunt: @i.Type.ToString()</div>
-            <div>Longest Chain: @i.Chain</div>
+
+            if (i.Type != Data.TypeHunt.SOSChain)
+            {
+                <div>Longest Chain: @i.Chain</div>
+            }
+            else
+            {
+                <div>Chain Length: @i.Chain</div>
+            }
             if (i.Type == Data.TypeHunt.DexNav)
             {
                 <div>DexNav Level: @i.DexLevel</div>
             }
-            <div>Length Of Hunt: @i.Amount Encounters</div>
+            if (i.Type != Data.TypeHunt.SOSChain)
+            {
+                <div>Length Of Hunt: @i.Amount Encounters</div>
+            }
             <div>Pokemon Caught: @i.Pokemon</div>
             @if (@i.ShinyCharm)
             {
@@ -41,6 +54,8 @@
             {
                 <div>Shiny Charm: No</div>
             }
+            <div>Started Hunt: @i.Start.ToString()</div>
+            <div>Finished Hunt: @i.Finish.ToString()</div>
             <hr />
         }
     }

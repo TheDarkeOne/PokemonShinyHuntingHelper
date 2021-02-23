@@ -1,13 +1,13 @@
-﻿@page "/hunt/softresets"
-@model PokemonShinyHuntingHelper.Pages.SoftResetsModel
+﻿@page "/hunt/soschain"
+@model PokemonShinyHuntingHelper.Pages.SOSChainModel
 @{
 }
 
 <form method="post">
     <div>
         <div>
-            <text>Encounters: </text>
-            <input type="number" asp-for="CurrentHunt.Amount">
+            <text>Chain Length: </text>
+            <input type="number" asp-for="CurrentHunt.Chain">
         </div>
         <div>
             <text>Pokemon Caught: </text>
@@ -31,12 +31,14 @@
         </div>
         <div>
             <text>Odds With Shiny Charm</text>
-            <input type="text" reaedonly asp-for="OddsWithShinyCharm">
+            <input type="text" readonly asp-for="OddsWithShinyCharm">
+        </div>
+        <div>
+            <text>Max Chain Odds</text>
+            <input type="text" readonly asp-for="MaxChainOdds">
         </div>
         <div>
             <input type="submit" />
         </div>
     </div>
 </form>
-
-

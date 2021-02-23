@@ -7,6 +7,6 @@ namespace PokemonShinyHuntingHelper.Data
 {
     public enum TypeHunt
     {
-        Default, SoftReset, Horde, ChainFishing, Radar, DexNav, FriendSafari
+        Default, SoftReset, Horde, ChainFishing, Radar, DexNav, FriendSafari, SOSChain
     }
 }

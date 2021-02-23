@@ -14,6 +14,14 @@
             <input asp-for="CurrentHunt.Pokemon" placeholder="Pokemon">
         </div>
         <div>
+            <text>Date and Time Started: </text>
+            <input type="datetime-local" asp-for="CurrentHunt.Start" placeholder="Start">
+        </div>
+        <div>
+            <text>Date and Time Finished: </text>
+            <input type="datetime-local" asp-for="CurrentHunt.Finish" placeholder="Finish">
+        </div>
+        <div>
             <text>Shiny Charm?</text>
             <input type="checkbox" asp-for="CurrentHunt.ShinyCharm" />
         </div>
@@ -23,7 +31,7 @@
         </div>
         <div>
             <text>Odds With Shiny Charm</text>
-            <input type="text" reaedonly asp-for="OddsWithShinyCharm">
+            <input type="text" readonly asp-for="OddsWithShinyCharm">
         </div>
         <div>
             <input type="submit" />

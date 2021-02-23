@@ -63,11 +63,6 @@ body {
   margin-bottom: 60px;
 }
 
-.CustomFormLayout 
-{
-    border:solid;
-    border-color: black
-}
 .footer {
   position: absolute;
   bottom: 0;
