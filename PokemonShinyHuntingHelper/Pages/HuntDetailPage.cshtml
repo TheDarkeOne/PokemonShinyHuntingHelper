@@ -1,0 +1,19 @@
+﻿@page "/Hunt/{Hunt}/{Id:int}"
+@model PokemonShinyHuntingHelper.Pages.HuntDetailPageModel
+@{
+}
+
+<div>@Model.ShinyHunt.Type</div>
+<div>@Model.ShinyHunt.Id</div>
+<div>@Model.ShinyHunt.Pokemon</div>
+@if (Model.ShinyHunt.Type != Data.TypeHunt.SOSChain)
+{
+    <div>@Model.ShinyHunt.Amount</div>
+}
+else 
+{ 
+    <div>@Model.ShinyHunt.Chain</div>
+}
+<form method="post">
+    <button>Delete</button>
+</form>

@@ -25,5 +25,6 @@ namespace PokemonShinyHuntingHelper.Pages
             HuntHistoryList = await dataService.GetHuntHistory();
         }
 
+
     }
 }

@@ -23,6 +23,7 @@
             }
             <div>Started Hunt: @i.Start.ToString()</div>
             <div>Finished Hunt: @i.Finish.ToString()</div>
+            <a href="/Hunt/@i.Type.ToString()/@i.Id">Details</a>
             <hr />
         }
         else if (i.Type == Data.TypeHunt.ChainFishing || i.Type == Data.TypeHunt.Radar || i.Type == Data.TypeHunt.DexNav || i.Type == Data.TypeHunt.SOSChain)
@@ -56,6 +57,7 @@
             }
             <div>Started Hunt: @i.Start.ToString()</div>
             <div>Finished Hunt: @i.Finish.ToString()</div>
+            <a href="/Hunt/@i.Type.ToString()/@i.Id">Details</a>
             <hr />
         }
     }

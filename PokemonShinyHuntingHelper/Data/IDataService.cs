@@ -8,6 +8,8 @@ namespace PokemonShinyHuntingHelper.Data
     public interface IDataService
     {
         Task<IEnumerable<Hunting>> GetHuntHistory();
+        Task<Hunting> GetHuntById(int Id);
         Task Hunt(Hunting hunt);
+        Task Delete(Hunting hunt);
     }
 }
