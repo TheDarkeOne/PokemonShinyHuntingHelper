@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PokemonShinyHuntingHelper.Data;
+using PokemonShinyHunt.Shared;
 
 namespace PokemonShinyHuntingHelper.Pages
 {
@@ -15,11 +15,11 @@ namespace PokemonShinyHuntingHelper.Pages
         public string BaseOdds { get; set; }
         public string OddsWithShinyCharm { get; set; }
 
-        private readonly IDataService dataService;
+        private readonly APIService apiService;
 
-        public SoftResetsModel(IDataService dataService)
+        public SoftResetsModel(APIService apiService)
         {
-            this.dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
+            this.apiService = apiService ?? throw new ArgumentNullException(nameof(apiService));
             CurrentHunt = new Hunting();
         }
         public void OnGet()
@@ -28,10 +28,11 @@ namespace PokemonShinyHuntingHelper.Pages
             OddsWithShinyCharm = "3/4096 or " + $"{CurrentHunt.Odds * 3}";
         }
 
-        public async Task<IActionResult> OnPostAsync() 
+        public async Task<IActionResult> OnPostAsync()
         {
+
             CurrentHunt.Type = TypeHunt.SoftReset;
-            await dataService.Hunt(CurrentHunt);
+            await apiService.AddHuntAsync(CurrentHunt);
             return RedirectToPage("Hunts");
         }
     }

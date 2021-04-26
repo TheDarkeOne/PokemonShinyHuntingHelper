@@ -4,8 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PokemonShinyHuntingHelper.Data;
-
+using PokemonShinyHunt.Shared;
 namespace PokemonShinyHuntingHelper.Pages
 {
     public class SOSChainModel : PageModel
@@ -16,11 +15,11 @@ namespace PokemonShinyHuntingHelper.Pages
         public string OddsWithShinyCharm { get; set; }
         public string MaxChainOdds { get; set; }
 
-        private readonly IDataService dataService;
+        private readonly APIService apiService;
 
-        public SOSChainModel(IDataService dataService)
+        public SOSChainModel(APIService apiService)
         {
-            this.dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
+            this.apiService = apiService ?? throw new ArgumentNullException(nameof(apiService));
             CurrentHunt = new Hunting();
         }
         public void OnGet()
@@ -35,7 +34,7 @@ namespace PokemonShinyHuntingHelper.Pages
 
             CurrentHunt.Type = TypeHunt.SOSChain;
             CurrentHunt.Amount = CurrentHunt.Chain + 1;
-            await dataService.Hunt(CurrentHunt);
+            await apiService.AddHuntAsync(CurrentHunt);
             return RedirectToPage("Hunts");
         }
     }

@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using PokemonShinyHuntingHelper.Data;
+using PokemonShinyHuntAPI.Data;
 
-namespace PokemonShinyHuntingHelper.Migrations
+namespace PokemonShinyHuntAPI.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20210223224414_AddedStartAndFinishTime")]
-    partial class AddedStartAndFinishTime
+    [Migration("20210323141154_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace PokemonShinyHuntingHelper.Migrations
                 .HasAnnotation("ProductVersion", "5.0.3")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-            modelBuilder.Entity("PokemonShinyHuntingHelper.Data.Hunting", b =>
+            modelBuilder.Entity("PokemonShinyHunt.Shared.Hunting", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,6 +61,30 @@ namespace PokemonShinyHuntingHelper.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Hunting");
+                });
+
+            modelBuilder.Entity("PokemonShinyHunt.Shared.Logs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<bool>("IsActivityLog")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsErrorLog")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime>("LogDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("LogMessage")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Logging");
                 });
 #pragma warning restore 612, 618
         }

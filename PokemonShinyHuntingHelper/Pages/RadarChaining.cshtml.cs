@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PokemonShinyHuntingHelper.Data;
+using PokemonShinyHunt.Shared;
 
 namespace PokemonShinyHuntingHelper.Pages
 {
@@ -13,11 +13,11 @@ namespace PokemonShinyHuntingHelper.Pages
         [BindProperty]
         public Hunting CurrentHunt { get; set; }
 
-        private readonly IDataService dataService;
+        private readonly APIService apiService;
 
-        public RadarChainingModel(IDataService dataService)
+        public RadarChainingModel(APIService apiService)
         {
-            this.dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
+            this.apiService = apiService ?? throw new ArgumentNullException(nameof(apiService));
             CurrentHunt = new Hunting();
         }
         public void OnGet()
@@ -26,8 +26,9 @@ namespace PokemonShinyHuntingHelper.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
+
             CurrentHunt.Type = TypeHunt.Radar;
-            await dataService.Hunt(CurrentHunt);
+            await apiService.AddHuntAsync(CurrentHunt);
             return RedirectToPage("Hunts");
         }
     }

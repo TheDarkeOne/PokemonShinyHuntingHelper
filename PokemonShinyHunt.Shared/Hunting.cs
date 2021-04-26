@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PokemonShinyHuntingHelper.Data
+namespace PokemonShinyHunt.Shared
 {
     public class Hunting
     {

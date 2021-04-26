@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PokemonShinyHunt.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PokemonShinyHuntingHelper.Data
+namespace PokemonShinyHuntAPI.Data
 {
     public class ApplicationDBContext : DbContext
     {
@@ -14,5 +15,6 @@ namespace PokemonShinyHuntingHelper.Data
         }
 
         public DbSet<Hunting> Hunting { get; set; }
+        public DbSet<Logs> Logging { get; set; }
     }
 }

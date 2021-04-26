@@ -1,5 +1,4 @@
 ﻿@page
-
 @model PokemonShinyHuntingHelper.Pages.HuntHistoryModel
 @{
 }
@@ -8,7 +7,7 @@
 {
     @foreach (var i in Model.HuntHistoryList)
     {
-        if (i.Type == Data.TypeHunt.SoftReset || i.Type == Data.TypeHunt.Horde || i.Type == Data.TypeHunt.FriendSafari)
+        if (i.Type == PokemonShinyHunt.Shared.TypeHunt.SoftReset || i.Type == PokemonShinyHunt.Shared.TypeHunt.Horde || i.Type == PokemonShinyHunt.Shared.TypeHunt.FriendSafari)
         {
             <div>Type of Hunt: @i.Type.ToString()</div>
             <div>Length of Hunt: @i.Amount Encounters</div>
@@ -26,11 +25,11 @@
             <a href="/Hunt/@i.Type.ToString()/@i.Id">Details</a>
             <hr />
         }
-        else if (i.Type == Data.TypeHunt.ChainFishing || i.Type == Data.TypeHunt.Radar || i.Type == Data.TypeHunt.DexNav || i.Type == Data.TypeHunt.SOSChain)
+        else if (i.Type == PokemonShinyHunt.Shared.TypeHunt.ChainFishing || i.Type == PokemonShinyHunt.Shared.TypeHunt.Radar || i.Type == PokemonShinyHunt.Shared.TypeHunt.DexNav || i.Type == PokemonShinyHunt.Shared.TypeHunt.SOSChain)
         {
             <div>Type of Hunt: @i.Type.ToString()</div>
 
-            if (i.Type != Data.TypeHunt.SOSChain)
+            if (i.Type != PokemonShinyHunt.Shared.TypeHunt.SOSChain)
             {
                 <div>Longest Chain: @i.Chain</div>
             }
@@ -38,11 +37,11 @@
             {
                 <div>Chain Length: @i.Chain</div>
             }
-            if (i.Type == Data.TypeHunt.DexNav)
+            if (i.Type == PokemonShinyHunt.Shared.TypeHunt.DexNav)
             {
                 <div>DexNav Level: @i.DexLevel</div>
             }
-            if (i.Type != Data.TypeHunt.SOSChain)
+            if (i.Type != PokemonShinyHunt.Shared.TypeHunt.SOSChain)
             {
                 <div>Length Of Hunt: @i.Amount Encounters</div>
             }

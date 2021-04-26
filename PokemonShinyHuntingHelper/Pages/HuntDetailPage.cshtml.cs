@@ -4,34 +4,34 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PokemonShinyHuntingHelper.Data;
+using PokemonShinyHunt.Shared;
 
 namespace PokemonShinyHuntingHelper.Pages
 {
     public class HuntDetailPageModel : PageModel
     {
-        private readonly IDataService dataService;
+        private readonly APIService aPIService;
 
         public string Hunt { get; set; }
         public int Id { get; set; }
         public Hunting ShinyHunt { get; set; }
 
-        public HuntDetailPageModel(IDataService dataService)
+        public HuntDetailPageModel(APIService aPIService)
         {
-            this.dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
+            this.aPIService = aPIService ?? throw new ArgumentNullException(nameof(aPIService));
         }
 
         public async Task OnGet(string Hunt, int Id)
         {
             this.Hunt = Hunt;
             this.Id = Id;
-            ShinyHunt = await dataService.GetHuntById(Id);
+            ShinyHunt = await aPIService.GetHuntByIdAsync(Id);
         }
 
         public async Task<IActionResult> OnPostAsync(int Id)
         {
-            ShinyHunt = await dataService.GetHuntById(Id);
-            await dataService.Delete(ShinyHunt);
+            ShinyHunt = await aPIService.GetHuntByIdAsync(Id);
+            await aPIService.DeleteAsync(ShinyHunt);
             return RedirectToPage("HuntHistory");
         }
     }

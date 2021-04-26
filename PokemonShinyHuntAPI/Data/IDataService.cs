@@ -1,9 +1,10 @@
-﻿using System;
+﻿using PokemonShinyHunt.Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PokemonShinyHuntingHelper.Data
+namespace PokemonShinyHuntAPI.Data
 {
     public interface IDataService
     {
@@ -11,5 +12,10 @@ namespace PokemonShinyHuntingHelper.Data
         Task<Hunting> GetHuntById(int Id);
         Task Hunt(Hunting hunt);
         Task Delete(Hunting hunt);
+        Task<IEnumerable<Logs>> GetLogs();
+        Task AddLog(Logs log);
+        string ConvertHuntToString(Hunting hunt);
+
+
     }
 }

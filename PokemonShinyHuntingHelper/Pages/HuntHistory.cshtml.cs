@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PokemonShinyHuntingHelper.Data;
+using PokemonShinyHunt.Shared;
 
 namespace PokemonShinyHuntingHelper.Pages
 {
@@ -13,16 +13,16 @@ namespace PokemonShinyHuntingHelper.Pages
         [BindProperty]
         public IEnumerable<Hunting> HuntHistoryList { get; set; }
 
-        private readonly IDataService dataService;
+        private readonly APIService apiService;
 
-        public HuntHistoryModel(IDataService dataService)
+        public HuntHistoryModel(APIService apiService)
         {
-            this.dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
+            this.apiService = apiService ?? throw new ArgumentNullException(nameof(apiService));
             HuntHistoryList = new List<Hunting>();
         }
         public async Task OnGet()
         {
-            HuntHistoryList = await dataService.GetHuntHistory();
+            HuntHistoryList = await apiService.GetHuntListAsync();
         }
 
 
